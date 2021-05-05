@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState }from "react"
+import {BrowserRouter, Switch, Route } from 'react-router-dom'
+import Navbar from "./components/Navbar"
+import Shop from "./components/Shop"
+import Homepage from "./components/Homepage"
+export default function App() {
+  const [inventory, setInventory] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
+  
 
-function App() {
+   
+    
+  
+  
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Switch>
+        <Route path="/shop">
+          <Shop/>
+        </Route>
+        <Route path="/">
+          <Homepage/>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
-export default App;
