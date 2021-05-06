@@ -1,34 +1,32 @@
 import React from "react"
-
+import Quantity from "./Quantity"
+import "./ProductCard.css"
 export default function ProductCard(props) {
+  const addButton = (
+    <button
+      onClick={props.addToCart}
+      id={props.id}
+    >
+      Add To cart
+    </button>
+  )
+  
   return(
     <div>
-      cart: {props.cart.map(item => {
-        return (
-          <div key={item.id}>
-            title: {item.title} quantity: {item.quantity} 
-            <button 
-              name="decQuantity" 
-              onClick={props.adjustQuantity}
-              id={item.id}              
-            >-
-            </button> 
-            <input type="text"
-              onChange={props.adjustQuantity}
-              name="inputQuantity"
-              id={item.id}
-              value={item.quantity}
-            />
-            <button
-              name="incQuantity"
-              onClick={props.adjustQuantity}
-              id={item.id}
-            >+
-      </button>
-          </div>
-        )
-      })}
-    
+      <img 
+        src={props.image} 
+        alt={props.title} 
+      />
+      <div>
+        {props.title}
+      </div>
+      <div>
+        ${props.price}
+      </div>
+      {/* <div>
+        {props.description}
+      </div> */}
+      {props.productInCart ? <Quantity /> : addButton}
     </div>
   )
 }

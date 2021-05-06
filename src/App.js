@@ -67,7 +67,7 @@ export default function App() {
         cart={cart}
         emptyCart={emptyCart}
       />
-          {isLoading? "loading..." : "finshed loading"} <br/>
+          {isLoading? "loading..." : null} <br/>
           <button id="2" onClick={addToCart}>Add to cart</button>
           <button id="3" onClick={addToCart}>Add to cart 2</button>
           <button onClick={emptyCart}>empty cart</button>
@@ -87,6 +87,7 @@ export default function App() {
             inventory={inventory}
             adjustQuantity={adjustQuantity}
             productInCart={productInCart}
+            addToCart={addToCart}
           />
         </Route>
         <Route path="/">

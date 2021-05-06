@@ -7,13 +7,15 @@ export default function Shop(props) {
         return(
           <div key={item.id}>
             <ProductCard
+              addToCart={props.addToCart}
               isInCart={props.productInCart}
               adjustQuantity={props.adjustQuantity}
               cart={props.cart}
-              price={props.inventory.price}
-              description={props.inventory.description}
-              id={props.inventory.id}
-              title={props.inventory.title}
+              image={item.image}
+              price={item.price}
+              description={item.description}
+              id={item.id}
+              title={item.title}
             />
           </div>
         )
