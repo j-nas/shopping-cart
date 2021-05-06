@@ -2,4 +2,4 @@
 
 Written with React
 
-[https://j-nas.github.io/shopping-cart](Live deployment)
+[Live Deployment](https://j-nas.github.io/shopping-cart)
