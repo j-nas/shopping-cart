@@ -16,6 +16,19 @@ function Navbar(props) {
           </li>
         </ul>
       </nav>
+      <div className="cart">
+        <button
+          className="resetButton"
+          onClick={props.emptyCart}
+        >
+          Empty Cart
+        </button>
+        <button 
+          className="cartCount"
+        >
+          {props.cart.length}
+        </button>
+      </div>
     </div>
   )
 }
