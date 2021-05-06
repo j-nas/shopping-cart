@@ -55,7 +55,11 @@ export default function App() {
       : setCart(newCart)
     
   }
-  
+  function productInCart(id){
+    if(cart.findIndex(item => item.id === Number(id)) === -1){
+      return false
+    } else return true
+  }
   
   return (
     <BrowserRouter>
@@ -82,6 +86,7 @@ export default function App() {
             cart={cart}
             inventory={inventory}
             adjustQuantity={adjustQuantity}
+            productInCart={productInCart}
           />
         </Route>
         <Route path="/">
