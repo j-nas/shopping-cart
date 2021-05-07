@@ -1,4 +1,8 @@
 .shop {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  margin: .5em;
+  gap: 1em;
+  place-items: center;
+  
 }
