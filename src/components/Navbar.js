@@ -1,9 +1,27 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import ShoppingCart from './ShoppingCart'
 
-import "./Navbar.css"
+import "./style/Navbar.css"
 function Navbar(props) {
-  // const location = useLocation()
+  const [showCart, setShowCart] = useState(false)
+  const [isCartFull, setIsCartFull] = useState(false)
+  function toggleCart(){
+    setShowCart(!showCart)
+  }
+  
+  function emptyCartCallback() {
+    setIsCartFull(false)
+    props.emptyCart()
+  }
+  
+  useEffect(
+    function checkCartStatus() {
+      if (props.cart.length === 0){
+        setIsCartFull(false)
+      } else setIsCartFull(true)
+    },[props]
+  )
   return (
     <div>
       <nav>
@@ -17,17 +35,19 @@ function Navbar(props) {
         </ul>
       </nav>
       <div className="cart">
-        <button
-          className="resetButton"
-          onClick={props.emptyCart}
-        >
-          Empty Cart
-        </button>
+        
         <button 
+          onClick={toggleCart}
           className="cartCount"
         >
-          {props.cart.length}
+          Cart: {props.cart.length} items
         </button>
+        {showCart && 
+          <ShoppingCart 
+            cart={props.cart} 
+            isCartFull={isCartFull}
+            emptyCart={emptyCartCallback}
+          />}
       </div>
     </div>
   )

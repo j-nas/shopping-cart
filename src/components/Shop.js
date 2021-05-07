@@ -1,8 +1,10 @@
 import React from "react"
 import ProductCard from "./ProductCard"
+import "./style/Shop.css"
 export default function Shop(props) {
   return(
-    <div>This is Shop
+    <div className="shop">
+      {props.isLoading ? "Loading...." : null}
       {props.inventory.map(item => {
         return(
           <div key={item.id}>
@@ -14,7 +16,7 @@ export default function Shop(props) {
               image={item.image}
               price={item.price}
               description={item.description}
-              id={item.id}
+              itemId={item.id}
               title={item.title}
             />
           </div>

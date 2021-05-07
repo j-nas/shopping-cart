@@ -1,10 +1,15 @@
 import React from "react"
 
 export default function Quantity(props){
+  function handleFocus(e) {
+    e.currentTarget.select()
+  }
+  
+  
   return (
     <div>
       <button
-        onclick={props.adjustQuantity}
+        onClick={props.adjustQuantity}
         id={props.id}
         name='incQuantity'
       >
@@ -15,9 +20,11 @@ export default function Quantity(props){
         name="inputQuantity" 
         id={props.id}
         value={props.quantity}
+        onChange={props.adjustQuantity}
+        onFocus={handleFocus}        
       />
       <button
-        onclick={props.adjustQuantity}
+        onClick={props.adjustQuantity}
         id={props.id}
         name="decQuantity"
       >
